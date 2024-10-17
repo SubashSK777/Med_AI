@@ -1,6 +1,5 @@
 # MEDAI
 
-[![Built with ❤](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com/#)
 
 An intelligent and responsible medical app.
 
