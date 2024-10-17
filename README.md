@@ -18,9 +18,9 @@ An intelligent and responsible medical app.
 
 ## Interctive Symptom Checker -
 
-![alt_text](https://github.com/Snehal-Reddy/MedAI/blob/master/static/Screenshot%20from%202019-09-12%2022-23-24.png)
-![alt_text](https://github.com/Snehal-Reddy/MedAI/blob/master/static/Screenshot%20from%202019-09-12%2022-27-07.png)
-![alt_text](https://github.com/Snehal-Reddy/MedAI/blob/master/static/Screenshot%20from%202019-09-12%2022-27-18.png)
+![alt_text](https://github.com/SubashSK777/Med_AI/blob/main/static/Screenshot%20from%202019-09-12%2022-24-28.png)
+![alt_text](https://github.com/SubashSK777/Med_AI/blob/main/static/Screenshot%20from%202019-09-12%2022-27-07.png)
+![alt_text](https://github.com/SubashSK777/Med_AI/blob/main/static/Screenshot%20from%202019-09-12%2022-27-18.png)
 
 
 
