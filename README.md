@@ -1,4 +1,12 @@
-﻿[![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+﻿---
+title: Med AI
+emoji: 🩺
+colorFrom: red
+colorTo: blue
+sdk: docker
+pinned: false
+---
+[![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](https://reactjs.org/)
 [![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
@@ -27,6 +35,7 @@ An intelligent and responsible medical app.
 ![alt_text](https://github.com/SubashSK777/Med_AI/blob/main/static/Screenshot%20from%202019-09-12%2022-24-28.png)
 ![alt_text](https://github.com/SubashSK777/Med_AI/blob/main/static/Screenshot%20from%202019-09-12%2022-27-07.png)
 ![alt_text](https://github.com/SubashSK777/Med_AI/blob/main/static/Screenshot%20from%202019-09-12%2022-27-18.png)
+
 
 
 
