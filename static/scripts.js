@@ -206,9 +206,9 @@ function RecieveFunc(data){
     }
 }
 
-// Google Scripts
-var CLIENT_ID = '686668170446-90dc678t33eiobahgan5qte8aod8nq1a.apps.googleusercontent.com';
-var API_KEY = 'AIzaSyBs9ZaCKkEMP7AdJWzDylVKFw_zJ7UzPHE';
+// Google Scripts (Placeholder - use environment variables or secure backend initialization)
+var CLIENT_ID = '';
+var API_KEY = '';
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
 var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 
