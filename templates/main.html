@@ -1,148 +1,149 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MedAI | Next-Gen Diagnostic Intelligence</title>
 
-    <!-- Bootstrap CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        medical: {
+                            glow: '#00f0ff',
+                            dark: '#0a0a0f',
+                            panel: 'rgba(20, 20, 30, 0.7)',
+                            border: 'rgba(0, 240, 255, 0.2)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.min.js" type="text/javascript"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.min.js"></script>
+
+    <link rel="stylesheet" href="static/styles.css">
+    
     <script src="static/b-typeahead.min.js" type="text/javascript"></script>
-     <link rel="stylesheet" href="static/styles.css"/>
-      <script type="text/javascript" src="static/scripts.js"></script>
-
-
-<title>MEDAI - by foo_bar</title>
-
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+<body class="bg-medical-dark text-gray-200 font-sans min-h-screen relative overflow-x-hidden">
+    
+    <!-- Animated Background Vector Map -->
+    <div class="fixed inset-0 z-0 pointer-events-none opacity-20" style="background: radial-gradient(circle at center, transparent 0%, #0a0a0f 80%), url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
+    <div class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none overflow-hidden flex items-center justify-center">
+        <div class="absolute w-[800px] h-[800px] bg-medical-glow rounded-full blur-[150px] opacity-10 animate-pulse"></div>
+    </div>
 
-<body>
+    <!-- Navigation -->
+    <nav class="relative z-50 flex items-center justify-between p-6 max-w-7xl mx-auto backdrop-blur-md border-b border-medical-border">
+        <a id="go-to-top" class="flex items-center gap-3 cursor-pointer group" href="/">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-medical-glow/20 to-transparent border border-medical-border flex items-center justify-center group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(0,240,255,0.1)]">
+                <i data-lucide="activity" class="text-medical-glow group-hover:animate-pulse"></i>
+            </div>
+            <span class="font-display font-bold text-2xl tracking-widest text-white shadow-glow">MEDAI</span>
+        </a>
+        <div class="flex items-center gap-4" data-step="6" data-intro="Sync with google for additional functions">
+            <button id="authorize_button" class="hidden px-5 py-2 rounded-full text-sm font-semibold tracking-wider bg-transparent border border-medical-border hover:bg-white hover:text-black transition-all">LOG IN</button>
+            <button id="signout_button" class="hidden px-5 py-2 rounded-full text-sm font-semibold tracking-wider bg-red-500/10 border border-red-500/30 text-red-500 hover:bg-red-500 hover:text-white transition-all">LOG OUT</button>
+            <button onclick="introJs().start();" class="px-5 py-2 rounded-full text-sm font-semibold tracking-wider bg-medical-glow/10 border border-medical-glow/30 text-medical-glow hover:bg-medical-glow hover:text-black transition-all shadow-[0_0_10px_rgba(0,240,255,0.2)]">HELP</button>
+        </div>
+    </nav>
 
-    <nav class="navbar sticky-top navbar-dark bg-dark shadow">
-		<a class="navbar-brand text-white" id="go-to-top"><b> M E D A I </b></a>
-		<form data-step="6" data-intro="Sync with google for additional functions"  class="form-inline my-2 my-lg-0">
-			<button class="btn btn-warning text-white mr-sm-1" id="authorize_button" style="display: none;"><b> Log In </b></button>
-			<button class="btn btn-danger text-white mr-sm-1" id="signout_button" style="display: none;"><b> Log Out </b></button>
-			<a class="btn btn-warning text-white mr-sm-0" onclick="introJs().start();"><b> Help </b></a>
-	    </form>
-	</nav>
+    <main class="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-24 flex flex-col items-center">
+        
+        <div id="slogan-container" class="text-center mb-16 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-medical-glow/30 bg-medical-glow/5 text-medical-glow text-xs uppercase tracking-widest mb-4">
+                <span class="flex h-2 w-2 rounded-full bg-medical-glow animate-pulse"></span>
+                System Online
+            </div>
+            <h1 id="slogan" class="font-display text-5xl md:text-7xl font-light text-white tracking-tight leading-tight">
+                Decipher your health with <br/>
+                <span class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-medical-glow to-blue-400">Neural Intelligence.</span>
+            </h1>
+        </div>
 
-    <br/>
-    <br/>
-
-
-    <h1 id="slogan" class="text-white" style="text-align: center; text-shadow: 0 0 20px #000000; font-family: monospace;"><b> Let's cure that illness with A.I !</b></h1>
-
-    <br/>
-    <br/>
-
-        <div class="card w-75 h-100 center text-center shadow p-3 mb-5 bg-white rounded" id="sbox">
-            <div class="card-body">
-                <form id = "send" action="" method="">
-
-                  
-                    <div class="row">
-                        <div class="col-md-6">
-
-							<div class="input-group mb-3">
-							  <!-- <div class="input-group-prepend">
-							    <span class="input-group-text">Image</span>
-							  </div> -->
-							  
-							</div>
-								 
-                        </div>
-                    </div>
-                    <div class="row">
-					  <div class="col-sm-6">
-					    <div class="card h-100 ">
-					      <div class="card-body">
-					        <h5 class="card-title">Decode prescriptions</h5>
-					        <p class="card-text">Can't understand or remeber when to take your mediciens ? Just upload a pic of your prescription and we'll sort everything out for you </p>
-                            <br/>
-					        <div class="container">
-                    <form method="post" action="" enctype="multipart/form-data" id="myform">
-                        <div >
-                            <input data-step="1" data-intro="Attach an image of your prescription here" type="file" id="file" name="file" />
-                            <br/><br/><br/>
-                            <button data-step="2" data-intro="Upload and wait.." type="button" class="btn btn-warning" id="but_upload" style="height:50px;width:200px;">Scan Prescription</button>
-                        </div>
-                    </form>
+        <div id="sbox" class="w-full flex flex-col md:flex-row gap-8 max-w-5xl transition-all duration-500">
+            <!-- Left Card: Prescription Scanner -->
+            <div class="flex-1 bg-medical-panel backdrop-blur-xl border border-medical-border rounded-2xl p-8 shadow-[0_8px_32px_rgba(0,0,0,0.5)] group hover:border-medical-glow/50 transition-colors">
+                <div class="h-12 w-12 rounded-xl bg-medical-glow/10 border border-medical-glow/20 flex items-center justify-center mb-6">
+                    <i data-lucide="scan-line" class="text-medical-glow w-6 h-6"></i>
                 </div>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col-sm-6">
-					    <div class="card h-100">
-					      <div class="card-body">
-					        <h5 class="card-title">Look For a Disease</h5>
-					        <p class="card-text">Feeling unwell ? Don't worry, just tell us your symptoms and our AI will find out what's wrong.</p>
-					        <br>
-					        <div data-step="3" data-intro="Enter your symptoms" class="input-group mb-3">
-							  <input type="text" class="form-control typeahead" id="symptom" placeholder="Symptoms" aria-label="Symptoms" aria-describedby="basic-addon2" autocomplete="off" data-provide="typeahead">
-							  <div class="input-group-append">
-							    <button class="btn btn-outline-secondary" data-step="4" data-intro="Add any number of symptoms" onclick="appendSymp();" type="button">Add</button>
-							  </div>
-							</div>
-                            <div id="tags"></div>
-					        <br>	
-                            <button data-step="5" data-intro="Upload and wait.." type="button" class="btn btn-warning" id="symp_upload" style="height:50px;width:200px;">Find Out</button>
-					      </div>
-					    </div>
-					  </div>
-					</div>
+                <h2 class="font-display text-2xl text-white font-medium mb-3">Decode Prescriptions</h2>
+                <p class="text-gray-400 text-sm font-light mb-8 leading-relaxed">
+                    Upload a high-resolution image of medical handwritten notes or prescriptions. Our Optical Character Recognition extracts the drug specifics and schedules instantly.
+                </p>
+                <form method="post" action="" enctype="multipart/form-data" id="myform">
+                    <div class="space-y-6">
+                        <label data-step="1" data-intro="Attach an image of your prescription here" class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-medical-border rounded-xl cursor-pointer hover:bg-medical-glow/5 hover:border-medical-glow/40 transition-all">
+                            <i data-lucide="upload-cloud" class="w-8 h-8 text-gray-400 mb-2 mt-2"></i>
+                            <span class="text-xs text-gray-400 uppercase tracking-widest mb-2" id="file-label">Select Image File</span>
+                            <input type="file" id="file" name="file" class="hidden" onchange="document.getElementById('file-label').innerText = this.files[0].name" />
+                        </label>
+                        <button data-step="2" data-intro="Upload and wait.." type="button" id="but_upload" class="w-full py-4 rounded-xl bg-white text-black font-semibold tracking-wider hover:bg-medical-glow hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="zap" class="w-4 h-4"></i> Execute Scan
+                        </button>
+                    </div>
                 </form>
             </div>
-        </div>  
-    <br/>
 
-    <div id="details" class="center text-center">
-      <!-- <h3 class="boxy">Please answer the following questions.</h3> -->
-    </div>
-    <br/>
+            <!-- Right Card: Symptom Search -->
+            <div class="flex-1 bg-medical-panel backdrop-blur-xl border border-medical-border rounded-2xl p-8 shadow-[0_8px_32px_rgba(0,0,0,0.5)] group hover:border-blue-400/50 transition-colors">
+                <div class="h-12 w-12 rounded-xl bg-blue-400/10 border border-blue-400/20 flex items-center justify-center mb-6">
+                    <i data-lucide="activity-square" class="text-blue-400 w-6 h-6"></i>
+                </div>
+                <h2 class="font-display text-2xl text-white font-medium mb-3">Diagnostic Search</h2>
+                <p class="text-gray-400 text-sm font-light mb-8 leading-relaxed">
+                    Input your physiological symptoms. The underlying machine learning model will cluster data points to determine potential underlying conditions.
+                </p>
+                
+                <div class="space-y-6">
+                    <div data-step="3" data-intro="Enter your symptoms" class="relative flex items-center gap-3">
+                        <div class="relative flex-1">
+                            <input type="text" class="w-full bg-black/50 border border-medical-border rounded-xl py-3 px-4 text-white focus:outline-none focus:border-medical-glow focus:ring-1 focus:ring-medical-glow/50 transition-all font-light text-sm typeahead" id="symptom" placeholder="E.g., headache, fever..." autocomplete="off">
+                        </div>
+                        <button onclick="appendSymp();" data-step="4" data-intro="Add any number of symptoms" type="button" class="px-5 py-3 rounded-xl bg-medical-border text-white hover:bg-white hover:text-black font-medium transition-all text-sm tracking-wide">Add</button>
+                    </div>
+                    
+                    <div id="tags" class="flex flex-wrap gap-2 min-h-[40px] p-4 rounded-xl bg-black/30 border border-medical-border/50">
+                        <!-- tags go here -->
+                    </div>
 
-    <div id="cards">
-<!--         <div class="card w-75 center text-center shadow p-3 mb-5 bg-white rounded boxy" id="'+name+'">
-            <div class="card-body">
-                <p class="card-title">Do you have/feel ?</p>
-                        <h5 class="card-text">'+name+'</h5>
-                        <a  class="btn btn-success" onclick="appendNewSymp("'+name+'");"> YES </a>
-                        <a  class="btn btn-danger" onclick="appendNewSymp(null);"> NO </a>
+                    <button data-step="5" data-intro="Find out" type="button" id="symp_upload" class="w-full py-4 rounded-xl border border-blue-400/50 bg-blue-400/10 text-blue-400 font-semibold tracking-wider hover:bg-blue-400 hover:text-black hover:shadow-[0_0_20px_rgba(96,165,250,0.4)] transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="microscope" class="w-4 h-4"></i> Analyze Symptoms
+                    </button>
+                </div>
             </div>
         </div>
 
-        <div class="card w-75 center text-center shadow p-3 mb-5 bg-white rounded boxy" id="'+name+'">
-            <div class="card-body">
-                <p class="card-title">Your symptoms</p>
-                        <h5 class="card-text" id="positive"></h5>
-            </div>
-            <button type="button" id="disease" class="btn btn-warning btn-lg">SEARCH</button>
-        </div> -->
+        <div id="details" class="w-full max-w-5xl mt-12 flex flex-col items-center justify-center empty:hidden"></div>
+        
+        <div id="cards" class="w-full max-w-5xl mt-8 flex flex-wrap gap-6 justify-center empty:hidden"></div>
 
-
-    </div>
-
-<script src="static/symptomsdata.js" type="text/javascript"></script>
-
-
-
-<!---------------------------------------------------------GOOGLE CALS--------------------->
-
-<!--     <button id="authorize_button" style="display: none;">Authorize</button>
-    <button id="signout_button" style="display: none;">Sign Out</button>
-
-    <pre id="content" style="white-space: pre-wrap;"></pre> -->
-
+    </main>
 
     <script async defer src="https://apis.google.com/js/api.js"
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
-
+    
+    <script src="static/symptomsdata.js" type="text/javascript"></script>
+    <script src="static/scripts.js" type="text/javascript"></script>
+    
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
-
 </html>
